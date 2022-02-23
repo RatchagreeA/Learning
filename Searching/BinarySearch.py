@@ -11,10 +11,7 @@ def BinarySearch1( arr, trg, first, last ):
                 last = mid -1
     return -1
 
-       
-
-
-def BinarySearch2( arr, trg,first, last ):
+def BinarySearch2( arr, trg, first, last ):
 
     if last >= first:
         mid = first + (last - first)//2
