@@ -70,7 +70,39 @@ public class Variable {
         int numInt2 = (int)numDouble2;
         System.out.println("Double -> Int : " + numInt2);
 
+        // char
+        char c1 = 'a';
+        // string
+        String s1 = "100", s2 = "200";
+        int n1;
+        // string to int
+        n1 = Integer.parseInt(s1);
+        n1 = n1 + 50;
+        System.out.println(n1);
 
+        // string to double
+        double n2;
+        n2 = Double.parseDouble(s1);
+        n2 = n2 + 9.9;
+        System.out.println(n2);
+
+        // Interger to string
+        int num1 = 100;
+        String s3 = String.valueOf(num1);
+        System.out.println(s3);
+
+        //  data type
+        Integer i1 = 10;
+        Double i2;
+        String i3 = "ABCD";
+        Boolean i4;
+        Character i5;
+        Float i6;
+        
+        boolean result1 = i3 instanceof String;
+        System.out.println(result1);
+        boolean result2 = i1.toString() instanceof String;
+        System.out.println(result2);
 
     }   
 }
