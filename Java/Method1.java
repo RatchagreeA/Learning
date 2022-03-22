@@ -23,8 +23,9 @@ public class Method1 {
         cmpResult = compareArr(arrT, arrY);
         System.out.println("cmpResult = " + cmpResult);
 
-
-
+        int[] arr = {1, 5, 77};
+        swapEle(arr, 0, 2);
+        dispArray(arr);
 
     }
     private static void display(String text){
@@ -87,5 +88,13 @@ public class Method1 {
             }            
         }
         return true;
+    }    
+    private static void swapEle(int[] a, int x, int y){
+        
+        int tmp;
+        tmp = a[x];
+        a[x] = a[y];
+        a[y] = tmp;
+        
     }
 }
