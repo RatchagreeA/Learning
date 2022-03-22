@@ -5,6 +5,7 @@ public class Method1 {
         String txt =  getText();
         display(txt);
         int[] arrT = {1, 5, 77, 44, 99, 65};
+        int[] arrY = {1, 5, 77, 44, 99, 65};
         dispArray(arrT);
 
         int result;
@@ -18,7 +19,9 @@ public class Method1 {
         result = findMinIdx(arrT);
         System.out.println("MinIdx = " + result);
 
-
+        boolean cmpResult;
+        cmpResult = compareArr(arrT, arrY);
+        System.out.println("cmpResult = " + cmpResult);
 
 
 
@@ -75,5 +78,14 @@ public class Method1 {
             }
         }
         return minIdx;
+    }
+    private static boolean compareArr(int[] a, int[] b){
+        if (a.length != b.length) return false;
+        for (int i = 0;i<a.length;i++){
+            if (a[i] != b[i]){
+                return false;
+            }            
+        }
+        return true;
     }
 }
