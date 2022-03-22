@@ -23,10 +23,12 @@ public class Method1 {
         cmpResult = compareArr(arrT, arrY);
         System.out.println("cmpResult = " + cmpResult);
 
-        int[] arr = {1, 5, 77};
-        swapEle(arr, 0, 2);
-        dispArray(arr);
-
+        int[] arrA = {1, 5, 77};
+        int[] arrB;
+        swapEle(arrA, 0, 2);
+        dispArray(arrA);
+        arrB = copyArr(arrA);
+        dispArray(arrB);
     }
     private static void display(String text){
         System.out.println(text);
@@ -38,11 +40,14 @@ public class Method1 {
         return "TEXT 123!";
     }
     private static void dispArray(int[] arr){
+        System.out.print("{ ");
         for (int i = 0;i<arr.length;i++){
-            display(i + " : " + arr[i]);
-            String x = String.valueOf("-------");
-            display(x);
+            System.out.print(arr[i]);
+            if (i <arr.length-1){
+                System.out.print(", ");
+            }
         }
+        System.out.println(" }");
     }
     private static int findMax(int[] arr){
         int maxVal = arr[0];
@@ -89,12 +94,18 @@ public class Method1 {
         }
         return true;
     }    
-    private static void swapEle(int[] a, int x, int y){
-        
+    private static void swapEle(int[] a, int x, int y){        
         int tmp;
         tmp = a[x];
         a[x] = a[y];
-        a[y] = tmp;
-        
+        a[y] = tmp;        
+    }
+    private static int[] copyArr(int[] a){        
+        int[] newArr = new int[a.length];
+        for (int i = 0;i<a.length;i++){
+            newArr[i] = a[i];
+        }
+        return newArr;
+
     }
 }
