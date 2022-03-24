@@ -29,6 +29,24 @@ public class Method1 {
         dispArray(arrA);
         arrB = copyArr(arrA);
         dispArray(arrB);
+
+        String[] pet = {"Cat", "Dog", "Bird"};
+        int idx;
+        idx = searchEle(pet, "Dog");
+        System.out.println("idx = " + idx);
+
+
+
+    }
+
+    private static int searchEle(String[] a, String b){
+        
+        for (int i = 0;i<a.length;i++){
+            if (a[i].equals(b)){
+                return i;
+            }
+        }
+        return -1;
     }
     private static void display(String text){
         System.out.println(text);
