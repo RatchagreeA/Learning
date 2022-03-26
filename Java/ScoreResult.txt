@@ -1,0 +1,5 @@
+NISIT001    60    C
+NISIT003    70    B
+NISIT004    80    A
+NISIT004    50    D
+NISIT005    0    F
