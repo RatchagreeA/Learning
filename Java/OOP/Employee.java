@@ -4,6 +4,20 @@ class Employee{
     private String name;
     private Double salary;
     
+    // default constructor
+    public Employee(){
+        System.out.println("Create object complete");
+    }
+    public Employee(String id, String name){
+        this.id = id;
+        this.name = name;
+    }
+    public Employee(String id, String name, Double salary){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
     // method
     public void setID(String id){
         this.id = id;
