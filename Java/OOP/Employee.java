@@ -14,13 +14,11 @@ class Employee{
     public Employee(String name, Double salary){
         this.name = name;
         this.salary = salary;
-        dispEmployee();
     }
     public Employee(String id, String name, Double salary){
         this.id = id;
         this.name = name;
         this.salary = salary;
-        dispEmployee();
     }
 
     // method
