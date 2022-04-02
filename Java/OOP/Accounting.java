@@ -5,4 +5,8 @@ class Accounting extends Employee{
         super(name,salary);
         System.out.println("I'm Accounting");
     }
+    // Override
+    public void bonus(){
+        System.out.println("Bonus = 15%");
+    }
 }

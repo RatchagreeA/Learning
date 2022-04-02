@@ -1,4 +1,4 @@
-class Employee{
+abstract class Employee{
     //Attribute
     private String id;
     private String name;
@@ -9,7 +9,7 @@ class Employee{
 
     // default constructor
     public Employee(){
-        System.out.println("Create object complete");
+        // System.out.println("Create object complete");
     }
     public Employee(String name, Double salary){
         this.name = name;
@@ -45,4 +45,5 @@ class Employee{
     public Double getSalary(){
         return this.salary;
     }
+    public abstract void bonus();
 }
