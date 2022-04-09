@@ -1,3 +1,24 @@
-p#message {
-    color: crimson;
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Rubik+Moonrocks&family=Rubik+Puddles&display=swap');
+#title {
+    color: red;
+    font-family: 'Grape Nuts', cursive;
+}
+.message {
+    color: blue;
+    font-family: 'Rubik Moonrocks', cursive;
+}
+h1 {
+    color: blueviolet;
+    font-family: 'Rubik Puddles', cursive;
+}
+* {
+    background-color: beige;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+}
+div {
+    border: 1px solid black;
+    /* width: 500px; */
+    /* height: 300px; */
 }
