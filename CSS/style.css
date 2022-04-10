@@ -1,24 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Rubik+Moonrocks&family=Rubik+Puddles&display=swap');
+
+#topic1 {
+    text-align: center;
+}
+#topic2 {
+    text-align: right;
+}
+p {
+    text-align: justify;
+}
 #title {
     color: red;
     font-family: 'Grape Nuts', cursive;
+    text-decoration: underline;
 }
 .message {
     color: blue;
     font-family: 'Rubik Moonrocks', cursive;
+    text-decoration: overline;
 }
 h1 {
     color: blueviolet;
     font-family: 'Rubik Puddles', cursive;
+    text-decoration: line-through;
 }
 * {
     background-color: beige;
     font-size: 20px;
     font-weight: bold;
     font-family: monospace;
+    text-decoration: none;
 }
 div {
     border: 1px solid black;
-    /* width: 500px; */
-    /* height: 300px; */
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(255, 0, 179);
+    text-decoration: underline line-through;
+}
+a {
+    text-decoration: none;
+}
+#block {
+    background-color: hotpink;
+    width: 200px;
+    height: 200px;
+}
+img {
+    width: 20%;
+    height: 20%;
 }
