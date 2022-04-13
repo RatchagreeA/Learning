@@ -1,0 +1,82 @@
+#device {
+    display: none;
+    background: gray;
+    color: white;
+    text-align: center;
+    padding: 100px;
+}
+.device {
+    display: none;
+}
+/* smartphone */
+@media only screen and (max-width:500px){
+    #device{
+        background-color: red;
+    }
+    #smartphone .device{
+        display: block;
+    }
+}
+/* tablet */
+@media only screen and (min-width:501px) and (max-width:768px){
+    #device{
+        background-color: blue;
+    }
+    #tablet .device{
+        display: block;
+    }
+}
+/* laptop */
+@media only screen and (min-width:769px) and (max-width:1200px){
+    #device{
+        background-color: green;
+    }
+    #laptop .device{
+        display: block;
+    }
+}
+/* widescreen */
+@media only screen and (min-width:1201px){
+    #device{
+        background-color: orange;
+    }
+    #widescreen .device{
+        display: block;
+    }
+}
+/* landscape */
+@media only screen and (max-height:500px){
+    #device{
+        background-color: palevioletred;
+    }
+    #landscape .device{
+        display: block;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#viewport {
+    background: #333;
+    color: #fff;
+    height: 100vh;
+    width: 100vW;
+    text-align: center;
+    padding: 2rem;
+    padding-top: 12rem;
+}
+#viewport h1 {
+    font-size: 3rem;
+}
+#viewport p {
+    margin: 1rem 0;
+}
+#viewport .btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 0.75rem 2rem;
+}
