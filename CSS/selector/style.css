@@ -1,0 +1,93 @@
+/* descentdant selector */
+div p {
+    background-color: greenyellow;
+}
+/* child selector */
+div>p {
+    background-color: yellow;
+}
+a {
+    color: white;
+}
+a[target] {
+    background-color: black;
+}
+a[target="_blank"] {
+    background-color: brown;
+}
+a[target="_self"] {
+    background-color: purple;
+}
+input[type="email"], input[type="text"] {
+    width: auto;
+    margin-bottom: 5px;
+}
+input[type="submit"]{
+    background-color: red;
+    border-radius: 10px;
+}
+/* li:first-child {
+    background-color: red;
+}
+li:last-child {
+    background-color: orange;
+}
+li:nth-child(3) {
+    background-color: green;
+}
+li:nth-last-child(3) {
+    background-color: aqua;
+}
+li:nth-child(4n+7) {
+    background-color: blueviolet;
+} */
+li:nth-child(odd) {
+    background-color: burlywood;
+}
+li:nth-child(even) {
+    background-color: brown;
+}
+#targeted-sel {
+    display: none;
+}
+#pseudo-sel {
+    display: none;
+}
+body {
+    background-color: black;
+    color: white;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://cdn.pixabay.com/photo/2022/03/01/02/51/galaxy-7040416_960_720.png');
+    background-size: contain;  
+    background-position: center;
+    /* background-repeat: no-repeat;  */
+    z-index: -1;
+}
+header>h1 {
+    font-size: 4rem;
+    margin: 1rem;
+    text-shadow: 2px 2px 0px black;
+}
+header>p {    
+    text-shadow: 2px 2px 0px black;
+}
+
