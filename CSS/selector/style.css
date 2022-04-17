@@ -1,9 +1,9 @@
 /* descentdant selector */
-div p {
+#targeted-sel div p {
     background-color: greenyellow;
 }
 /* child selector */
-div>p {
+#targeted-sel div>p {
     background-color: yellow;
 }
 a {
@@ -54,7 +54,7 @@ li:nth-child(even) {
     display: none;
 }
 body {
-    background-color: black;
+    background-color: #333;
     color: white;
 }
 header {
@@ -79,7 +79,7 @@ header::before{
     background: url('https://cdn.pixabay.com/photo/2022/03/01/02/51/galaxy-7040416_960_720.png');
     background-size: contain;  
     background-position: center;
-    /* background-repeat: no-repeat;  */
+    background-repeat: no-repeat; 
     z-index: -1;
 }
 header>h1 {
@@ -90,4 +90,167 @@ header>h1 {
 header>p {    
     text-shadow: 2px 2px 0px black;
 }
+#before-after {
+    display: none;
+}
+#css-variable {
+    display: none;
+}
+#css-variable .box-1 {
+    border: var(--box-1, 2px solid white);
+    padding: 10px;
+    margin: 2px 0px;
+}
+#css-variable .box-2 {
+    border: var(--box-2, 2px solid white);
+    padding: 10px;
+    margin: 2px 0px;
+}
+#css-variable .box-3 {
+    border: var(--box-3, 2px solid white);
+    padding: 10px;
+    margin: 2px 0px;
+}
+#tranform {
+    display: none;
+    justify-content: center;
+    align-items: center;    
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #333;
+}
+#tranform .box{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border: 2px solid wheat;
 
+    /* transform: translate(100px, 100px); */
+    /* transform: rotate(45deg); */
+    /* transform: scale(1.5, 2); */
+    /* transform: skewX(45deg); */
+    /* transform: skewY(45deg); */
+    /* transform: skew(10deg, 20deg); */
+
+    /* transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 1s; */
+    /* transition: background 3s, width 3s, border-radius 3s ease-out 0.5s; */
+    transition: all 3s ease-out 0.5s;        
+}
+#tranform .box:hover {
+    background-color: aqua;
+    width: 300px;
+    border-radius: 50%;
+}
+#animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+#animation .box {
+    position: absolute;
+    margin: auto;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    background-color: var(--pink);
+    height: 50px;
+    width: 50px;
+    transform: rotate(-45deg);
+    animation: animation-1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;    
+    animation-timing-function: ease-out;
+    z-index: 1;
+    
+}
+#animation .box:before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -25px;
+    left: 0px;
+    background-color: var(--pink);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 2;  
+}
+#animation .box:after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 0px;
+    left: 25px;
+    background-color: var(--pink);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 3;  
+}
+@keyframes beat {
+    0% {
+        transform: scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: scale(0.6) rotate(-45deg);
+      }
+}
+@keyframes animation-1 {
+    0% {
+        top: 0;
+        left: 0;
+        transform: scale(1) rotate(0deg);
+        /* background-color: pink; */
+        --pink: var(--color1);
+    }
+    25% {
+        top: 0;
+        left: 300px;
+        transform: scale(0.6) rotate(90deg);
+        /* background-color: rgb(248, 131, 150);   */
+        --pink: var(--color2);      
+    }
+    50% {
+        top: 300px;
+        left: 300px;
+        transform: scale(1) rotate(180deg);
+        /* background-color: rgb(248, 76, 104); */
+        --pink: var(--color3);
+    }
+    75% {
+        top: 300px;
+        left: 0;
+        transform: scale(0.6) rotate(-90deg);
+        /* background-color: rgb(247, 27, 63); */
+        --pink: var(--color4);
+    }
+    100% {
+        top: 0;
+        left: 0;
+        transform: scale(1) rotate(180deg);
+        /* background-color: rgb(255, 0, 43); */
+        --pink: var(--color5);
+    }
+}
+:root {    
+    --box-1: 2px solid red;
+    --box-2: 2px solid green;
+    --box-3: 2px solid blue;
+    --pink: pink;
+    --color1: pink;
+    --color2: rgb(248, 76, 104);
+    --color3: rgb(255, 0, 43);
+    --color4: rgb(248, 76, 104);
+    --color5: pink;
+}
