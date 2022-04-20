@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
-html {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-}
-*  {
     margin: 0;
+}
+:root {
+    font-size: 16px;
 }
 body {
     background-color: rgb(86, 187, 241);
+    font-family: 'Dosis', sans-serif;
+    height: 300vh;
 }
 .header-img {
     display: block;
@@ -50,15 +55,54 @@ body {
     margin: 0 30px;
 }
 .header {
-    text-align: center;
-    font-family: 'Dosis', sans-serif;
+    text-align: center;    
     font-size: 1.7rem;
     color: white;
     text-shadow: 1px 1px 3px black,-1px -1px 3px black ;
 }
+#title { 
+    font-size: 3.4rem;
+}
+#description { 
+    font-size: 1.7rem;
+}
 @media (max-width: 600px) {
-    .flex-item h1,p {
-      font-size: 1.6rem;
-      line-height: 0.9;
+    #title {
+        font-size: 2rem;
+        line-height: 0.9;
+    }
+    #description {
+        font-size: 1.4rem;
+        line-height: 0.9;
     }
 }
+#name-label::after, #email-label::after {
+    content: "*";
+    color: red;
+}
+.header-container {
+    margin-bottom: 2rem;
+}
+
+/* form {
+    background: whitesmoke;
+    width: 100%;
+    padding: 2rem 0.625rem;
+    border-radius: 0.25rem;
+} */
+
+/* .container {
+    background-color: aliceblue;
+    width: 100%;
+    margin: 0 auto 0 auto;
+  } */
+
+/* h1, p {
+    font-size: 2rem;
+} */
+/* label {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+} */

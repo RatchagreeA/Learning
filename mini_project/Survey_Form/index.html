@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="container">
         <div class="header-img"></div>
         <div class="header-container">                     
@@ -16,7 +17,130 @@
                 <h1 id="title">Survey Form</h1>
                 <p id="description">Thank you for taking the time to help us do anime research</p>
             </header>
-        </div>
+        </div>        
+        <form action="" id="survey-form">
+            <section class="form-group">
+                <label id="name-label" for="name">Name</label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    placeholder="Enter your name" 
+                    required
+                >
+            </section>
+
+            <section class="form-group">
+                <label id="email-label" for="email">E-mail</label>
+                <input
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Enter your Email" 
+                    required
+                >
+            </section>
+            
+            <section class="form-group">
+                <label id="number-label" for="number">Age</label>
+                <input 
+                    type="number" 
+                    name="number" 
+                    id="number" 
+                    placeholder="Age" 
+                    min="0" 
+                    max="100"
+                >
+            </section>
+
+            <section class="form-group">
+                <p>Gender</p>
+                <select name="dropdown" id="dropdown">
+                    <option disabled value="" selected>Select an option</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Lesbian ">Lesbian </option>
+                    <option value="Gay ">Gay </option>
+                    <option value="Bisexual ">Bisexual </option>
+                    <option value="Transgender">Transgender</option>
+                    <option value="Queer">Queer</option>
+                </select>
+            </section>
+            <section class="form-group">
+                <p>Would you recommend <strong>GRAND BLUE</strong> to a friend?</p>
+                <label>
+                    <input
+                        name="user-recommend"
+                        value="definitely"
+                        type="radio"                    
+                        checked
+                    >
+                    Definitely
+                </label>
+                <label>
+                    <input
+                        name="user-recommend"
+                        value="maybe"
+                        type="radio"
+                        class="input-radio"
+                    >
+                    Maybe
+                </label>
+                <label>
+                    <input
+                        name="user-recommend"
+                        value="not-sure"
+                        type="radio"
+                        class="input-radio"
+                    >
+                    Not sure
+                </label>
+            </section>
+
+            <section class="form-group">
+                <p>What is your favorite character?</p>
+                <label for="Kitahara-Iori">
+                    <input type="checkbox" id="Kitahara-Iori" name="fav" value="Kitahara-Iori">
+                    Kitahara Iori
+                </label>
+                <label for="Kotegawa-Chisa">
+                    <input type="checkbox" id="Kotegawa-Chisa" name="fav" value="Kotegawa-Chisa">
+                    Kotegawa Chisa
+                </label>
+                <label for="Kotegawa-Nanaka">
+                    <input type="checkbox" id="Kotegawa-Nanaka" name="fav" value="Kotegawa-Nanaka">
+                    Kotegawa Nanaka
+                </label>
+                <label for="Imamura-Kōhei">
+                    <input type="checkbox" id="Imamura-Kōhei" name="fav" value="Imamura-Kōhei">
+                    Imamura Kōhei
+                </label>
+                <label for="Tokita-Shinji">
+                    <input type="checkbox" id="Tokita-Shinji" name="fav" value="Tokita-Shinji">
+                    Tokita Shinji
+                </label>
+                <label for="Kotobuki-Ryūjirō">
+                    <input type="checkbox" id="Kotobuki-Ryūjirō" name="fav" value="Kotobuki-Ryūjirō">
+                    Kotobuki Ryūjirō
+                </label>
+                <label for="Hamaoka-Azusa">
+                    <input type="checkbox" id="Hamaoka-Azusa" name="fav" value="Hamaoka-Azusa">
+                    Hamaoka Azusa
+                </label>
+                <label for="Yoshiwara-Aina">
+                    <input type="checkbox" id="Yoshiwara-Aina" name="fav" value="Yoshiwara-Aina">
+                    Yoshiwara Aina
+                </label>
+            </section>
+
+            <section class="form-group">
+                <p>Any comments or suggestions?</p>
+                <textarea id="comments" name="comments" placeholder="Enter your comments here"></textarea>
+            </section>
+            
+            
+            <input type="submit" value="Submit" id="submit">
+        </form>
     </div>
 </body>
 </html>
