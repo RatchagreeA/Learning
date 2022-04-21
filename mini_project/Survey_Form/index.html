@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div class="container">
-        <div class="header-img"></div>
-        <div class="header-container">                     
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Grand_Blue_Logo.png" alt="" class="flex-item logo">
-            <header class="flex-item header">
-                <h1 id="title">Survey Form</h1>
-                <p id="description">Thank you for taking the time to help us do anime research</p>
-            </header>
-        </div>        
+    <div class="header-img"></div>
+    <div class="header-container">                     
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Grand_Blue_Logo.png" alt="" class="flex-item logo">
+        <header class="flex-item header">
+            <h1 id="title">Survey Form</h1>
+            <p id="description">Thank you for taking the time to help us do anime research</p>
+        </header>
+    </div>       
+    <div class="container">         
         <form action="" id="survey-form">
             <section class="form-group">
                 <label id="name-label" for="name">Name</label>
@@ -72,7 +71,8 @@
                     <input
                         name="user-recommend"
                         value="definitely"
-                        type="radio"                    
+                        type="radio"
+                        class="input-radio"                    
                         checked
                     >
                     Definitely
@@ -100,35 +100,35 @@
             <section class="form-group">
                 <p>What is your favorite character?</p>
                 <label for="Kitahara-Iori">
-                    <input type="checkbox" id="Kitahara-Iori" name="fav" value="Kitahara-Iori">
+                    <input type="checkbox" id="Kitahara-Iori" name="fav" value="Kitahara-Iori" class="input-checkbox">
                     Kitahara Iori
                 </label>
                 <label for="Kotegawa-Chisa">
-                    <input type="checkbox" id="Kotegawa-Chisa" name="fav" value="Kotegawa-Chisa">
+                    <input type="checkbox" id="Kotegawa-Chisa" name="fav" value="Kotegawa-Chisa" class="input-checkbox">
                     Kotegawa Chisa
                 </label>
                 <label for="Kotegawa-Nanaka">
-                    <input type="checkbox" id="Kotegawa-Nanaka" name="fav" value="Kotegawa-Nanaka">
+                    <input type="checkbox" id="Kotegawa-Nanaka" name="fav" value="Kotegawa-Nanaka" class="input-checkbox">
                     Kotegawa Nanaka
                 </label>
                 <label for="Imamura-Kōhei">
-                    <input type="checkbox" id="Imamura-Kōhei" name="fav" value="Imamura-Kōhei">
+                    <input type="checkbox" id="Imamura-Kōhei" name="fav" value="Imamura-Kōhei" class="input-checkbox">
                     Imamura Kōhei
                 </label>
                 <label for="Tokita-Shinji">
-                    <input type="checkbox" id="Tokita-Shinji" name="fav" value="Tokita-Shinji">
+                    <input type="checkbox" id="Tokita-Shinji" name="fav" value="Tokita-Shinji" class="input-checkbox">
                     Tokita Shinji
                 </label>
                 <label for="Kotobuki-Ryūjirō">
-                    <input type="checkbox" id="Kotobuki-Ryūjirō" name="fav" value="Kotobuki-Ryūjirō">
+                    <input type="checkbox" id="Kotobuki-Ryūjirō" name="fav" value="Kotobuki-Ryūjirō" class="input-checkbox">
                     Kotobuki Ryūjirō
                 </label>
                 <label for="Hamaoka-Azusa">
-                    <input type="checkbox" id="Hamaoka-Azusa" name="fav" value="Hamaoka-Azusa">
+                    <input type="checkbox" id="Hamaoka-Azusa" name="fav" value="Hamaoka-Azusa" class="input-checkbox">
                     Hamaoka Azusa
                 </label>
                 <label for="Yoshiwara-Aina">
-                    <input type="checkbox" id="Yoshiwara-Aina" name="fav" value="Yoshiwara-Aina">
+                    <input type="checkbox" id="Yoshiwara-Aina" name="fav" value="Yoshiwara-Aina" class="input-checkbox">
                     Yoshiwara Aina
                 </label>
             </section>
@@ -137,8 +137,7 @@
                 <p>Any comments or suggestions?</p>
                 <textarea id="comments" name="comments" placeholder="Enter your comments here"></textarea>
             </section>
-            
-            
+
             <input type="submit" value="Submit" id="submit">
         </form>
     </div>

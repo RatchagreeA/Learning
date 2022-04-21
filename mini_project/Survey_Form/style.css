@@ -9,24 +9,21 @@
     font-size: 16px;
 }
 body {
-    background-color: rgb(86, 187, 241);
+    background-color: rgb(155, 220, 255);
     font-family: 'Dosis', sans-serif;
-    height: 300vh;
 }
 .header-img {
     display: block;
     width: 100%;
     height: 160px;
-    background-color: black;
     background-image: url('https://wallpapercave.com/wp/wp3796071.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
     z-index: -2;
     margin-bottom: -160px;
-    opacity: 100%;
     position: sticky;
-    
+    top: 0;    
 }
 .header-img::before {
     content: "";
@@ -36,7 +33,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(180deg, rgba(86, 187, 241, 0) 25%, rgb(86, 187, 241));
+    background-image: linear-gradient(180deg, rgba(155, 220, 255, 0) 25%, rgb(155, 220, 255));
     z-index: -1;
 }
 .header-container {
@@ -57,8 +54,9 @@ body {
 .header {
     text-align: center;    
     font-size: 1.7rem;
-    color: white;
-    text-shadow: 1px 1px 3px black,-1px -1px 3px black ;
+    color: #000000;
+    text-shadow: 1px 1px 3px #fff,-1px -1px 3px #fff;
+    /* text-shadow: 1px 1px 3px #f7e232,-1px -1px 3px #65b4eb; */
 }
 #title { 
     font-size: 3.4rem;
@@ -83,26 +81,78 @@ body {
 .header-container {
     margin-bottom: 2rem;
 }
-
-/* form {
-    background: whitesmoke;
-    width: 100%;
-    padding: 2rem 0.625rem;
+.container {
+    max-width: 50rem;
+    margin: 0 auto 3rem auto;
+}
+form {
+    background: rgba(255, 255, 255, 0.733);
+    padding: 2.5rem;
     border-radius: 0.25rem;
-} */
-
-/* .container {
-    background-color: aliceblue;
-    width: 100%;
-    margin: 0 auto 0 auto;
-  } */
-
-/* h1, p {
-    font-size: 2rem;
-} */
-/* label {
+    margin: 0 auto;
+    border-radius: 0.3rem;
+}
+.form-group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+}
+h1, p {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+label {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-} */
+}
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  font-size: 1.3rem;
+  margin-top: 0.3rem;
+}
+label:hover, input:hover, select:hover {
+    cursor: pointer;
+}
+input[type="number"], 
+input[type="email"], 
+input[type="text"],
+select {
+    width: 100%;
+    height: 2.4rem;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 0.3rem;
+    padding-left: 1rem;   
+}
+textarea {
+    width: 100%;
+    min-height: 6rem;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 0.3rem;
+    padding-left: 1rem;
+}
+#submit {
+    width: 100%;
+    height: 2.4rem;
+    font-family: inherit;
+    font-size: inherit;    
+    padding: 0;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 0px rgba(143, 64, 248, 0.5),
+    0px 0px 0px rgba(39, 200, 255, 0.5);
+}
+#submit:hover {    
+    border: 2px solid #f7e232;
+    background-color: #65b4eb;
+    color: white;
+}

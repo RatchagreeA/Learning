@@ -49,8 +49,7 @@ body {
 }
 .nav-item:hover {
     background-color: white;
-  }
-  
+}  
 .nav-item:hover a {
     color: black;
 }
@@ -89,8 +88,7 @@ img {
     overflow: hidden;
     margin: 0 auto;
 }
-.img-wrapper img {
-    
+.img-wrapper img {    
     border-radius: 1%;
     width: 100%;      
     transition: 0.25s ease;
@@ -99,9 +97,8 @@ img {
     transform: scale(1.1);
 }
 #img-caption {
-    margin: 15px 0 5px 0;
+    margin: 15px 10% 5px;
 }
-
 section strong {    
     color: blue;    
 }
