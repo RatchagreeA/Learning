@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Landing Page</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ </head>
 <body>
     
     <header id="header">
@@ -23,23 +25,58 @@
     </header>
 
     <main id="main">
-        <section class="register">
-            <h1>Register to get information.</h1>
-            <form action="" id="form">
-                <input type="email" name="email" id="email " placeholder="Enter your E-mail">
-                <br>
-                <input type="submit" value="Submit" id="submit">
-            </form>
+        <section class="features">
+            <div class="txt-wrapper">
+                <h1>Grand Blue, Japanese manga series Shopping.</h1>
+            </div>
+            <div class="features-container">
+                <div class="features-item">
+                    <div class="features-icon">
+                        <span class="material-symbols-outlined">
+                            paid
+                        </span>
+                    </div>
+                    <div class="features-desc">
+                        <h2>The Best Price</h2>
+                    </div>
+                </div>
+
+                <div class="features-item">
+                    <div class="features-icon">
+                        <span class="material-symbols-outlined">
+                            local_shipping
+                        </span>
+                    </div>
+                    <div class="features-desc">
+                        <h2>Fast Shipping</h2>
+                    </div>
+                </div>
+
+                <div class="features-item">
+                    <div class="features-icon">
+                        <span class="material-symbols-outlined">
+                            new_releases
+                        </span>
+                    </div>
+                    <div class="features-desc">
+                        <h2>Brand new</h2>
+                    </div>
+                </div>
+            </div>
         </section>
        
-        <section id="About">            
-            <iframe  id="video" width="560" height="315" src="https://www.youtube.com/embed/0PpTUtHtwt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="About"></div>
+        <section id="About">
+            <div class="video-wrapper">     
+                <iframe  id="video" width="560" height="315" src="https://www.youtube.com/embed/0PpTUtHtwt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>    
             <div class="about-container">
                 <h2>About</h2>
                 <p class="about"> <strong>Grand Blue</strong> (also known as Grand Blue Dreaming) is a Japanese manga series written by Inoue Kenji and illustrated by Yoshioka Kimitake. It centers on the budding youthful drama of Iori Kitahara as he begins his university life living in his uncle's diving store, "Grand Blue" near the coastal city of Izu. It began serialization in the May 2014 issue of Kodansha's Good! Afternoon seinen manga magazine. The first bound volume was released in November 2014 in Japan; as of November 2019, fourteen volumes have been released. An anime television series adaptation by Zero-G and directed by Shinji Takamatsu was aired from July 14 to September 29, 2018.</p>
             </div>
         </section>
 
+        <div id="Product"></div>
         <section id="Product">
             <h2>Products</h2>
             <div class="product-container">            
@@ -47,6 +84,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 1</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -63,8 +103,8 @@
                                     <li class="chapter">Chapter 4 - Underwater</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -73,6 +113,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 2</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -90,8 +133,8 @@
                                     <li class="chapter">Extra 1 - Idiots, Test and Cheating</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -100,6 +143,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 3</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -117,8 +163,8 @@
                                     <li class="chapter">Extra 2 - A Normal Drinking Party</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -127,6 +173,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 4</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -144,8 +193,8 @@
                                     <li class="chapter">Chapter 17 - A Place Without Lies</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -154,6 +203,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 5</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -171,8 +223,8 @@
                                     <li class="chapter">Extra 3 - United</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -181,6 +233,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 6</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -198,8 +253,8 @@
                                     <li class="chapter">Extra 5 - The Letter</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -208,6 +263,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 7</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -224,8 +282,8 @@
                                     <li class="chapter">Extra 4 - Mahjong</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -234,6 +292,9 @@
                     <div class="item">
                         <div class="vol-txt">
                             <h3>Vol. 8</h3>
+                            <div class="price">
+                                <p>¥693</p>
+                            </div>
                         </div>
                         <div class="item-detail">
                             <div class="img-wrapper">
@@ -251,8 +312,8 @@
                                     <li class="chapter">Chapter 33 - School Camping For Adults</li>
                                 </ol>
                                 <div class="button-container">
-                                    <input type="button" value="Add to Cart" class="buy-button">
-                                    <input type="button" value="Buy Now" class="buy-button">
+                                    <input type="button" value="Add to Cart" class="buy-button cart-button">
+                                    <input type="button" value="Buy Now" class="buy-button now-button">
                                 </div>
                             </div>
                         </div>
@@ -265,11 +326,30 @@
     </main>
 
     <footer id="Contact">
-        <span>If you interest in Grand Blue, please visit</span>
-        <a href="#" target="_blank" id="tribute-link">Grand Blue Wiki</a>      
+        <div class="Contact-container">
+            <div class="subscribe">
+                <h2>Get an email when new products arrive.</h2>
+                <form action="https://www.freecodecamp.com/email-submit" id="form">
+                    <input type="email" name="email" id="email " placeholder="Enter your E-mail">                    
+                    <input type="submit" value="SUBSCRIBE" id="submit">
+                </form>
+            </div>
+            <div class="follow-container">
+                <div class="follow-txt">
+                    <h2>Follow us.</h2>
+                </div>
+                <div class="social-icon">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>  
+                </div>
+            </div>
+        </div>
+        <div class="copyright-txt">
+            <p>Copyright 2022 by Grand Blue. All Rights Reserved.</p>
+        </div>    
     </footer>
-
-
     
 </body>
 </html>
