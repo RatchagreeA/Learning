@@ -68,7 +68,7 @@ section#About, section#Product, section#Contact {
     background-color: rgb(56, 185, 255);
     cursor: pointer;
 }
-.nav-link a:hover {
+.nav-link:hover {
     color: white;
     cursor: pointer;
 }
@@ -118,10 +118,10 @@ h2 {
     margin: 0px auto 20px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .video-wrapper {
-    margin: 10px auto;
+    margin: 10px;
     width:  580px;
     height: 335px;
     display: flex;
@@ -133,7 +133,7 @@ h2 {
 }
 .about-container {
     display: block;
-    width: 1fr;
+    width: 500px;
     margin: 0px 0px 0px 40px;
 }
 .about-container h2 {
@@ -355,10 +355,12 @@ ol {
 @media (max-width: 1400px) {
     #About {
         flex-direction: column;
-        justify-content: center;        
+        justify-content: center; 
+        align-items: center;       
     }
     .about-container h2 {
         text-align: center;
+        margin: 10px 0px;
     }
     .item-container {
         flex-direction: column;
