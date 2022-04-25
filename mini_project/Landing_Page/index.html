@@ -17,9 +17,9 @@
         </div>
         <nav id="nav-bar">
             <ul id="nav-links">
-                <li class="nav-link"><a href="#About">About</a></li>
-                <li class="nav-link"><a href="#Product">Product</a></li>
-                <li class="nav-link"><a href="#Contact">Contact</a></li>
+                <li><a class="nav-link" href="#About">About</a></li>
+                <li><a class="nav-link" href="#Product">Product</a></li>
+                <li><a class="nav-link" href="#Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -65,8 +65,8 @@
             </div>
         </section>
        
-        <div id="About"></div>
-        <section id="About">
+        <section id="About"></section>
+        <div id="About">
             <div class="video-wrapper">     
                 <iframe  id="video" width="560" height="315" src="https://www.youtube.com/embed/0PpTUtHtwt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>    
@@ -74,10 +74,10 @@
                 <h2>About</h2>
                 <p class="about"> <strong>Grand Blue</strong> (also known as Grand Blue Dreaming) is a Japanese manga series written by Inoue Kenji and illustrated by Yoshioka Kimitake. It centers on the budding youthful drama of Iori Kitahara as he begins his university life living in his uncle's diving store, "Grand Blue" near the coastal city of Izu. It began serialization in the May 2014 issue of Kodansha's Good! Afternoon seinen manga magazine. The first bound volume was released in November 2014 in Japan; as of November 2019, fourteen volumes have been released. An anime television series adaptation by Zero-G and directed by Shinji Takamatsu was aired from July 14 to September 29, 2018.</p>
             </div>
-        </section>
+        </div>
 
-        <div id="Product"></div>
-        <section id="Product">
+        <section id="Product"></section>
+        <div id="Product">
             <h2>Products</h2>
             <div class="product-container">            
                 <div class="item-container">
@@ -322,16 +322,23 @@
 
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
+    <section id="Contact"></section>
     <footer id="Contact">
         <div class="Contact-container">
             <div class="subscribe">
                 <h2>Get an email when new products arrive.</h2>
                 <form action="https://www.freecodecamp.com/email-submit" id="form">
-                    <input type="email" name="email" id="email " placeholder="Enter your E-mail">                    
-                    <input type="submit" value="SUBSCRIBE" id="submit">
+                    <input
+                        name="email"
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        required
+                    />
+                    <input id="submit" type="submit" value="SUBSCRIBE" />
                 </form>
             </div>
             <div class="follow-container">
