@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+}
+code {
+    
+}
+dt {
+
+}
+dd {
+    margin-top: 3px;
+    margin-left: 30px;
+}
+.class-name {
+    font-size: 1rem;
+}
+.class-method {
+    font-size: 1.25rem;
+}
+.class-arg {
+    font-size: 1rem;
+}
