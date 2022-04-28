@@ -4,8 +4,34 @@
     padding: 0;
     margin: 0;
 }
+body {
+
+}
+#main-doc {
+    min-width: 450px;
+    max-width: 800px;
+    padding: 1.2rem;
+    margin: 0 0 0 230px;
+}
+header {
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 0.3em 0;
+}
+article  p {
+    margin: 1rem 0;
+    text-align: left;
+}
+dd > :first-child {
+    margin-top: 0px;
+}
 code {
-    
+    white-space: pre-line;    
+    background-color: #ecf0f3;
+    padding: 0 1px 0 1px;
+}
+dl {
+    margin-bottom: 15px;
 }
 dt {
 
@@ -14,12 +40,39 @@ dd {
     margin-top: 3px;
     margin-left: 30px;
 }
+.nbk-code {
+    background-color: transparent;
+}
 .class-name {
     font-size: 1rem;
+    background-color: transparent;
 }
 .class-method {
     font-size: 1.25rem;
+    background-color: transparent;
 }
 .class-arg {
     font-size: 1rem;
+}
+.ex-code {
+    display: block;
+    text-align: left;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: #eeffcc;
+    border: 1px solid #ac9;
+    padding: 15px;
+    margin: 10px 10px 10px 0;
+    border-radius: 5px;
+}
+h2 {
+    padding: 0.3rem 0;
+}
+#Reference {
+    margin: 0 0 2rem 0;
+}
+#Reference ul {
+    padding-left: 4rem;
 }
