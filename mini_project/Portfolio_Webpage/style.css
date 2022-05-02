@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 
+/*          Table of content            */
+/*          0.GLOBAL SECTION            */
+/*          1.NAV SECTION               */
+/*          2.WELCOME SECTION           */
+/*          3.ABOUT SECTION             */
+/*          4.EXPERIENCE SECTION        */
+/*          5.PROJECTS SECTION          */
+/*          6.CONTACT SECTION           */
+
+/* GLOBAL SECTION */
 *,
 *::after,
 *::before {
@@ -7,8 +17,22 @@
     margin: 0;    
 }
 :root {
-    --nav-red: white;
-    --nav-blue:rgb(255, 0, 149);
+    --nav-bg-color: white;
+    --nav-txt-color: black;
+    --welcome-bg-color: #333;
+    --welcome-txt-color: white;
+    --personal-bg-color:#ececec;
+    --personal-txt-color: black;
+    --exp-bg-color:white;
+    --exp-txt-color: black;
+    --project-section-bg-color: rgb(201, 233, 250);
+    --project-section-txt-color: black;
+    --project-tile-bg-color: black;
+    --project-tile-txt-color: white;
+    --project-tile-hover-color: rgb(255, 0, 149);
+    --contact-bg-color: #333;
+    --contact-txt-color: white;
+    --contact-hover-color: rgb(255, 0, 149);
 }
 html {
     font-size: 16px;
@@ -19,6 +43,8 @@ html {
 a {
     text-decoration: none;    
 }
+
+/* NAV SECTION */
 .nav {
     display: flex;
     flex-direction: row;
@@ -28,7 +54,7 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--nav-red);
+    background-color: var(--nav-bg-color);
     width: 100%;
     z-index: 99;
 }
@@ -36,7 +62,7 @@ a {
     display: block;
     font-size: 2rem;
     cursor: pointer;
-    color: black;
+    color: var(--nav-txt-color);
 }
 .nav-list {
     display: flex;
@@ -55,7 +81,7 @@ a {
     cursor: pointer;
     font-size: 1.1rem;
     padding: 1.1rem 1.5rem;
-    color: black;
+    color: var(--nav-txt-color);
     position: relative;
 }
 .nav-list a::after {
@@ -65,7 +91,7 @@ a {
     height: 3px;
     right: 0;
     bottom: 0.5rem;
-    background-color: #000;
+    background-color: var(--nav-txt-color);
     transition: transform 0.3s;
     transform: scaleX(0);   
 }
@@ -75,12 +101,18 @@ a {
 .nav-list a:hover::after {
     transform: scaleX(1);    
 }
+
+/* WELCOME SECTION  */
 .welcome {    
     width: 100%;
     height: 100vh;
-    background-color: #333;
-    background-image: linear-gradient(62deg, #333 0%, #333 100%);
-    color: white;
+    background-color: var(--welcome-bg-color);
+    background-image: linear-gradient(
+        62deg, 
+        var(--welcome-bg-color) 0%, 
+        var(--welcome-bg-color) 100%
+        );
+    color: var(--welcome-txt-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,8 +133,11 @@ a {
 .intro-txt {
     font-size: 3rem;    
 }
+
+/* ABOUT SECTION */
 .info-container {
-    background-color: #ececec;
+    background-color: var(--personal-bg-color);
+    color: var(--personal-txt-color);
     padding: 5rem 10rem;
     display: grid;
     grid-template-areas: 
@@ -135,8 +170,11 @@ a {
 .detail p {
     margin-bottom: 0.5rem;    
 }
+
+/* EXPERIENCE SECTION */
 .exp-container {
-    background-color: white;
+    background-color: var(--exp-bg-color);
+    color: var(--exp-txt-color);
     display: flex;
     flex-direction: column;
     padding: 5rem 1rem 5rem 10rem;
@@ -167,16 +205,19 @@ a {
     font-size: 1.25rem;
     line-height: 1.75rem;
 }
+
+/* PROJECTS SECTION */
 .projects-section {
     text-align: center;
     padding: 5rem 2rem 3rem;
-    background: rgb(201, 233, 250);
+    background: var(--project-section-bg-color);
 }
 .projects-section-header {
+    color: var(--project-section-txt-color);
     font-size: 3rem;
-    max-width: 600px;
+    width: fit-content;
     margin: 0 auto 5rem;
-    border-bottom: 0.2rem solid black;
+    border-bottom: 0.2rem solid var(--project-section-txt-color);
 }
 .projects-grid {
     display: grid;
@@ -188,16 +229,16 @@ a {
     margin-bottom: 4rem;
   }
 .project {
-    background: black;
-    border: 1px solid black;    
+    background: var(--project-tile-bg-color);
+    border: 1px solid var(--project-tile-bg-color);    
     border-radius: 2px;
 }  
 .code {
-    color: black;
+    color: var(--project-tile-bg-color);
     transition: color 0.3s ease-out;
 }
 .project:hover .code {
-    color: rgb(255, 0, 149);
+    color: var(--project-tile-hover-color);
 }
 .project-image {
     height: calc(100% - 4rem);
@@ -207,7 +248,7 @@ a {
 .project-title {
     font-size: 1.5rem;
     padding: 0.7rem 0.5rem;
-    color: white;
+    color: var(--project-tile-txt-color);
 }
 
 .btn {
@@ -217,17 +258,14 @@ a {
 }
 .btn-show-all {
     font-size: 1.5rem;
-    background: #000;
-    color: white;
+    background: var(--project-tile-bg-color);
+    color: var(--project-tile-txt-color);
     transition: background 0.3s ease-out;
     border-radius: 2px;
 }
-.btn-show-all:hover {
-    /* color: rgb(255, 0, 149); */
-}
 .btn-show-all:hover > i {
     transform: translateX(0.5rem);
-    color: rgb(255, 0, 149);
+    color: var(--project-tile-hover-color);
 }
 .btn-show-all > i {
     margin-left: 10px;
@@ -235,6 +273,7 @@ a {
     transition: transform 0.3s ease-out;
 }
 
+/* CONTACT SECTION */
 .contact-section {
     display: flex;
     flex-direction: column;
@@ -244,14 +283,14 @@ a {
     width: 100%;
     height: 80vh;
     padding: 0;
-    background: rgb(56, 185, 255);
-    color: white;
-    background-color: #333;
-    background-image: linear-gradient(62deg, #333 0%, #333 100%);
-    color: white;
+    background-color: var(--contact-bg-color);
+    background-image: linear-gradient(
+        62deg,  
+        var(--contact-bg-color) 0%, 
+        var(--contact-bg-color) 100%);
+    color: var(--contact-txt-color);
     position: relative;
 }
-
 .contact-section-header > h2 {
     font-size: 6rem;
 }
@@ -267,18 +306,68 @@ a {
     flex-wrap: wrap;
 }
 .contact-details {
-    color: white;
+    color: var(--contact-txt-color);
     font-size: 1.5rem;
     text-shadow: 2px 2px 1px #1f1f1f;
     transition: transform 0.3s ease-out;
 }
 .contact-details:hover {
     transform: translateY(8px);
-    color: rgb(255, 0, 149);
+    color: var(--contact-hover-color);
 }
 .copy-txt {
-    color: white;
+    color: var(--contact-txt-color);
     position: absolute;
     right: 2rem;
     bottom: 2rem;
 }
+
+/* media query */
+@media (max-width: 1200px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 980px) {
+    html {
+        font-size: 10px;
+    }
+    .welcome {    
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .info-container {
+        grid-template-areas: 
+            "personal-info"
+            "language-skill"
+            "Programming-skill"
+        ;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .exp-container {
+        padding: 5rem 1rem 5rem 5rem;
+    }
+    .exp {
+        flex-direction: column;
+    }
+    .detail-container {
+        margin-top: 0.5rem;
+        margin-left: 4.5rem;
+        width: 90%;
+    }
+    
+}
+
+@media (max-width: 460px) {
+    html {
+      font-size: 8px;
+    }
+    .exp-container {
+        padding: 5rem 1rem 5rem 3rem;
+    }
+  }
