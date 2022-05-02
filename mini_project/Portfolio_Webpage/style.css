@@ -8,6 +8,7 @@
 /*          4.EXPERIENCE SECTION        */
 /*          5.PROJECTS SECTION          */
 /*          6.CONTACT SECTION           */
+/*          7.MEDIA QUERY               */
 
 /* GLOBAL SECTION */
 *,
@@ -227,7 +228,7 @@ a {
     max-width: 1280px;
     margin: 0 auto;
     margin-bottom: 4rem;
-  }
+}
 .project {
     background: var(--project-tile-bg-color);
     border: 1px solid var(--project-tile-bg-color);    
@@ -250,7 +251,6 @@ a {
     padding: 0.7rem 0.5rem;
     color: var(--project-tile-txt-color);
 }
-
 .btn {
     display: inline-block;
     padding: 0.6rem 2rem;
@@ -287,7 +287,8 @@ a {
     background-image: linear-gradient(
         62deg,  
         var(--contact-bg-color) 0%, 
-        var(--contact-bg-color) 100%);
+        var(--contact-bg-color) 100%
+        );
     color: var(--contact-txt-color);
     position: relative;
 }
@@ -322,7 +323,7 @@ a {
     bottom: 2rem;
 }
 
-/* media query */
+/* MEDIA QUERY  */
 @media (max-width: 1200px) {
     html {
         font-size: 12px;
