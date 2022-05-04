@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="app.js"></script>
+    <title>test title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="b()">alert</button>
-    <button onclick="c()">text</button>
+    <p id="demo1">text1</p>
+    <p class="demo2">text2</p>
+    <p id="demo3">text3</p>
+    <p id="demo4">class</p>
+
+    <select name="" id="menu" onchange="change()" onmouseover="hover(this)" onmouseleave="unhover(this)">
+        <option value="1py">1py</option>
+        <option value="2ro">2ro</option>
+        <option value="3ls">3ls</option>
+    </select>
+    <p id="disp"></p>
+    <button id="btn">btn</button>
+    <input type="text" placeholder="text" onfocus="hilite(this)" onblur="unhilite(this)">
+
+    <ul id="list"></ul>
+    <button onclick="addClass()">add class</button>
+    <button onclick="removeClass()">remove class</button>
+    <button onclick="toggleClass()">toggle class</button>
+
+    <button onclick="addItem()">add</button>
+    <button onclick="removeItem()">remove</button>
+    <button onclick="replaceItem()">replace</button>
+    <button onclick="dispTxt1()">alert</button>
+    <button onclick="dispTxt2()">test</button>
+    <script src="app.js"></script>
 </body>
 </html>
