@@ -1,92 +1,159 @@
-let a = document.getElementById("demo1");
-let b = document.querySelector('.demo2');
-let c = document.querySelector('#list');
-let item = document.createElement('li');
-item.innerText = "item 1";
-let x = 10;
-let y = 20;
-let cnt = 1;
+const contacts = [
+    {
+      firstName: "Akira",
+      lastName: "Laine",
+      number: "0543236543",
+      likes: ["Pizza", "Coding", "Brownie Points"],
+    },
+    {
+      firstName: "Harry",
+      lastName: "Potter",
+      number: "0994372684",
+      likes: ["Hogwarts", "Magic", "Hagrid"],
+    },
+    {
+      firstName: "Sherlock",
+      lastName: "Holmes",
+      number: "0487345643",
+      likes: ["Intriguing Cases", "Violin"],
+    },
+    {
+      firstName: "Kristian",
+      lastName: "Vos",
+      number: "unknown",
+      likes: ["JavaScript", "Gaming", "Foxes"],
+    },
+  ];
+  
+  function lookUpProfile(name, prop) {
+    // Only change code below this line
+    for (let i=0;i<contacts.length;i++){
+      if (contacts[i].firstName == name) {
+        if (contacts[i].hasOwnProperty(prop))  {
+          return contacts[i][prop];
+        } else {
+          return "No such property"
+        }
+      }
+      
+    }
+    return "No such contact"
+    // Only change code above this line
+  }
 
-const menu = document.getElementById("menu");
-const disp = document.getElementById("disp");
-menu.addEventListener('change',chg);
-function chg(){
-    disp.innerText = menu.value;
-}
-const btn = document.getElementById("btn");
-btn.addEventListener('click',shw);
-function shw(){
-    alert("welcom");
-}
-
-function hilite(obj) {
-    obj.style.background="red";
-}
-function unhilite(obj) {
-    obj.style.background="white";
-}
-function change() {
-    const menu = document.getElementById("menu");
-    // const disp = document.getElementById("disp");
-    console.log(menu.value.toUpperCase());
-    // disp.innerText = menu.value;
-}
-function hover(obj) {
-    obj.style.background="red";
-}
-function unhover(obj) {
-    obj.style.background="white";
-}
+  function rangeOfNumbers(startNum, endNum) {
+    if (startNum > endNum) {
+      return [];
+    } else {
+      const range = rangeOfNumbers(startNum, endNum-1);
+      range.push(endNum);
+      return range;
+    }
+  };
+  console.log(rangeOfNumbers(6, 9));
 
 
-let d = document.querySelector('#demo4');
-let status;
-function addClass() {
-    d.classList.add('demo1')
-}
-function removeClass() {
-    d.classList.remove('demo1')
-}
-function toggleClass() {
-    status = d.classList.contains('demo1');
-    d.classList.toggle('demo2')
-    console.log(status);
 
 
-}
 
-function dispTxt1() {
-    a.innerText="<strong>new</strong> text";
-    b.innerText="<strong>new</strong> text";
-    a.style.color = "red";
-    b.setAttribute('class','demo4');
-}
-function dispTxt2() {
-    a.innerHTML="<strong>new</strong> text";
-    b.innerHTML=`${x} ${y}`;
-    a.style.color = "black";
-    b.setAttribute('class','demo5');
+
+
+
+
+
+
+
+
+// let a = document.getElementById("demo1");
+// let b = document.querySelector('.demo2');
+// let c = document.querySelector('#list');
+// let item = document.createElement('li');
+// item.innerText = "item 1";
+// let x = 10;
+// let y = 20;
+// let cnt = 1;
+
+
+// const menu = document.getElementById("menu");
+// const disp = document.getElementById("disp");
+// menu.addEventListener('change',chg);
+// function chg(){
+//     disp.innerText = menu.value;
+// }
+// const btn = document.getElementById("btn");
+// btn.addEventListener('click',shw);
+// function shw(){
+//     alert("welcom");
+// }
+
+// function hilite(obj) {
+//     obj.style.background="red";
+// }
+// function unhilite(obj) {
+//     obj.style.background="white";
+// }
+// function change() {
+//     const menu = document.getElementById("menu");
+//     // const disp = document.getElementById("disp");
+//     console.log(menu.value.toUpperCase());
+//     // disp.innerText = menu.value;
+// }
+// function hover(obj) {
+//     obj.style.background="red";
+// }
+// function unhover(obj) {
+//     obj.style.background="white";
+// }
+
+
+// let d = document.querySelector('#demo4');
+// let status;
+// function addClass() {
+//     d.classList.add('demo1')
+// }
+// function removeClass() {
+//     d.classList.remove('demo1')
+// }
+// function toggleClass() {
+//     status = d.classList.contains('demo1');
+//     d.classList.toggle('demo2')
+//     console.log(status);
+
+
+// }
+
+// function dispTxt1() {
+//     a.innerText="<strong>new</strong> text";
+//     b.innerText="<strong>new</strong> text";
+//     a.style.color = "red";
+//     b.setAttribute('class','demo4');
+// }
+// function dispTxt2() {
+//     a.innerHTML="<strong>new</strong> text";
+//     b.innerHTML=`${x} ${y}`;
+//     a.style.color = "black";
+//     b.setAttribute('class','demo5');
    
-}
-function addItem() {
-    let item = document.createElement('li');
-    item.innerText = "item" + cnt;
-    item.setAttribute('class',"item" + cnt);
-    cnt++;
-    c.appendChild(item);
-}
-function removeItem() {
-    let item = document.querySelector(".item" + (cnt-1));
-    cnt--;
-    c.removeChild(item);
-}
-function replaceItem() {
-    let item = document.querySelector(".item" + (cnt-1));
-    let newItem = document.createElement('li');
-    newItem.innerText = "new " + cnt;
-    newItem.setAttribute('class',"item" + (cnt-1));
-    c.replaceChild(newItem, item);
-}
+// }
+// function addItem() {
+//     let item = document.createElement('li');
+//     item.innerText = "item" + cnt;
+//     item.setAttribute('class',"item" + cnt);
+//     cnt++;
+//     c.appendChild(item);
+// }
+// function removeItem() {
+//     let item = document.querySelector(".item" + (cnt-1));
+//     cnt--;
+//     c.removeChild(item);
+// }
+// function replaceItem() {
+//     let item = document.querySelector(".item" + (cnt-1));
+//     let newItem = document.createElement('li');
+//     newItem.innerText = "new " + cnt;
+//     newItem.setAttribute('class',"item" + (cnt-1));
+//     c.replaceChild(newItem, item);
+// }
 
 // let x = 10;
 // let y = 20;
