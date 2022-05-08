@@ -1,3 +1,43 @@
+function chunkArrayInGroups(arr, size) {
+  // return arr.length<=size? [arr]: [ arr.slice(0,size), ...chunkArrayInGroups(arr.slice(size), size)];
+  return arr.length<=size? [arr]: [arr.slice(0,size)].concat(chunkArrayInGroups(arr.slice(size), size));
+}
+
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2));
+
+function mutation(arr) {
+  let pattern = [...arr[1]].map(x=> new RegExp(x,'i'));
+  console.log(pattern.every(x=>x.test(arr[0])));
+  return pattern.every(x=>x.test(arr[0]));
+}
+
+mutation(["hello", "hey"]);
+
+function getIndexToIns(arr, num) {
+  return arr.filter(x=> x<num).length;
+}
+
+console.log(getIndexToIns([40, 60], 50));
+
+function titleCase(str) {
+  let o = str.split(' ').map(word => word[0].toUpperCase()+word.slice(1).toLowerCase()).join(' ');
+  console.log(o);
+  return o;
+}
+
+titleCase("I'm a little tea pot");
+
+
+function findElement(arr, func) {
+  let num = 0;
+  console.log(arr[arr.map(func).indexOf(true)]);
+  return arr.map(func).indexOf(true)==-1
+  ? undefined
+  : arr[arr.map(func).indexOf(true)];
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
 let hello = "   Hello, World!  ";
 let wsRegex = /^\s+|\s+$/g; // Change this line
 let result = hello.replace(wsRegex, ""); // Change this line
