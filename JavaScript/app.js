@@ -1,3 +1,40 @@
+let funModule  = (function () {
+  return {
+    isCuteMixin: function(obj) {
+      obj.isCute = function() {
+        return true;
+      };
+    },
+    singMixin: function(obj) {
+      obj.sing = function() {
+        console.log("Singing to an awesome tune");
+      };
+    }
+  }
+})();
+
+let odule  = {
+
+    isCuteMixin: function(obj) {
+      obj.isCute = function() {
+        return true;
+      };
+    },
+    singMixin: function(obj) {
+      obj.sing = function() {
+        console.log("Singing to an awesome tune");
+      };
+    }
+  };
+
+let duck={};
+console.log(typeof funModule);
+console.log(typeof odule);
+
+(function () {
+  console.log("Chirp, chirp!");
+})();
+
 function chunkArrayInGroups(arr, size) {
   // return arr.length<=size? [arr]: [ arr.slice(0,size), ...chunkArrayInGroups(arr.slice(size), size)];
   return arr.length<=size? [arr]: [arr.slice(0,size)].concat(chunkArrayInGroups(arr.slice(size), size));
