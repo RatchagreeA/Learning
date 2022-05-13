@@ -1,3 +1,26 @@
+function fearNotLetter(str) {
+
+  let st = str[0].charCodeAt(0);
+  let ed = str[str.length-1].charCodeAt(0);
+  let sum = (ed-st+1)*(ed+st)/2;
+  let strVal = str.split('').map(c => c.charCodeAt(0)).reduce( (cur,val)=> cur+=val,0);
+  let diff = sum - strVal;
+  return diff== 0? undefined : String.fromCharCode(diff);
+
+}
+
+console.log(fearNotLetter("abce"));
+
+function myReplace(str, before, after) {
+  let tmp = before[0].toUpperCase()==before[0]
+  ?after[0].toUpperCase()+after.slice(1)
+  :after[0].toLowerCase()+after.slice(1)
+  console.log(tmp)
+  return str.replace(before,tmp);
+}
+
+console.log(myReplace("Let us go to the store", "store", "mall"));
+
 function spinalCase(str) {
 
     return str
