@@ -1,3 +1,112 @@
+function dropElements(arr, func) {
+
+  // let idx = arr.map(func).indexOf(true);
+  let idx = arr.findIndex(func);
+  return idx==-1?[]:arr.slice(idx);
+}
+
+console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5;}));
+
+function smallestCommons(arr) {
+
+  let n = [];
+  let limit = [...arr].sort((a,b)=>a-b);
+  for (let i = limit[0]; i <= limit[1]; i++) {
+    n.push(i)
+  }
+  let result = limit[1];
+  while (!n.every(val => result%val==0)) {
+    result++;    
+  }
+  return result;
+}
+
+console.log(smallestCommons([1, 5]));
+
+
+// function smallestCommons(arr) {
+//   // Setup
+//   const [min, max] = arr.sort((a, b) => a - b);
+//   const range = Array(max - min + 1)
+//     .fill(0)
+//     .map((_, i) => i + min);
+//   // GCD of two numbers
+//   // https://en.wikipedia.org/wiki/Greatest_common_divisor#Euclid's_algorithm
+//   const gcd = (a, b) => (b === 0) ? a : gcd(b, a % b);
+//   // LCM of two numbers
+//   // https://en.wikipedia.org/wiki/Least_common_multiple#Using_the_greatest_common_divisor
+//   const lcm = (a, b) => a * b / gcd(a, b);
+//   // LCM of multiple numbers
+//   // https://en.wikipedia.org/wiki/Least_common_multiple#Other
+//   return range.reduce((multiple, curr) => lcm(multiple, curr));
+// }
+
+// smallestCommons([1, 5]);
+
+function sumPrimes(num) {
+  let sum = 0;
+  for (let i = 2;i<=num;i++){
+    if (isPrimes(i)){
+      sum+=i;
+    }
+  }
+  return sum;
+}
+
+console.log(sumPrimes(10));
+function isPrimes(n) {
+  if (n==0||n==1) return false
+  for (let i=2;i<n;i++) {
+    if (n%i == 0 ) {
+      return false
+    }
+  }
+  return true
+}
+// function sumPrimes(num) {
+  
+//   let primes = [];
+//   for (let i = 2; i <= num; i++) {
+//     if (primes.every((prime) => i % prime !== 0))
+//       primes.push(i);
+//   }
+//   return primes.reduce((sum, prime) => sum + prime, 0);
+// }
+
+function convertHTML(str) {
+  let pair = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&apos;'
+  }
+  return str.split('').map( c => pair.hasOwnProperty(c)?pair[c]:c).join('');
+}
+
+function uniteUnique(...arr) {
+  let result = [];
+  
+  return  result
+          .concat(...arr)
+          .reduce((prev, cur) => prev.includes(cur) 
+          ? prev : prev.concat(cur), [])
+
+}
+
+console.log( uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) );
+
+
+// function uniteUnique(...arr) {
+//   return [...new Set(arr.flat())];
+// }
+
+// function uniteUnique() {
+//   return [...arguments]
+//     .flat()
+//     .filter((item, ind, arr) => arr.indexOf(item) === ind);
+// }
+
 function fearNotLetter(str) {
 
   let st = str[0].charCodeAt(0);
