@@ -10,17 +10,39 @@ function checkCashRegister(price, cash, cid) {
     "TWENTY": 20,
     "ONE HUNDRED": 100
   }
-  let unit = Object.keys(pair).map( (val,idx) => [val, Object.values(pair)[idx]] );
-  unit.sort( (a,b) => b[1]-a[1]);
-  console.log(unit);
-  let change=cash-price;
-  let nCid = cid.map( arr => [arr[0], Math.round(arr[1]/pair[arr[0]]) ])
-  cid.sort( (a,b) => b[1]-a[1]);
-  return nCid;
+  let diff=cash-price;
+  let sumAll = cid.reduce( (prev, cur) => prev = Math.round((prev+cur[1])*100)/100,0);
+  let tmpCid = [...cid].reverse();
+  let tmpChange = [];
+  let remain = tmpCid.reduce( (prev, cur) =>{
+    let unit = cur[0];
+    let amount = cur[1];
+    let unitVal = pair[unit];
+    if (prev>unitVal) {
+      let nChange = Math.floor(prev/unitVal);
+      let nStore = Math.floor(amount/unitVal);
+      let nMin = Math.min(nChange,nStore);
+      prev = Math.round((prev-nMin*unitVal)*100)/100      
+      tmpChange.push([unit, nMin*unitVal])
+    }
+    return prev
+    },diff)
+  let status = 'OPEN';
+  let change = [];
+  if (diff == sumAll){
+    status = 'CLOSED';
+    change = cid;
+  } else if (remain > 0) {
+    status = 'INSUFFICIENT_FUNDS';
+    change = [];
+  } else {
+    status = 'OPEN';
+    change = tmpChange;
+  }
+  let result = {status,change}
+  return result;
 }
-
-console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
-
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
 
 
 
