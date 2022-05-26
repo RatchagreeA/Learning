@@ -1,7 +1,19 @@
 import PropTypes from 'prop-types';
-
-const Item = (prop) => {
-    return (<li>{prop.title}<span></span>{prop.amount}</li>)
+import "./Item.css"
+import DataContext from '../data/DataContext';
+const Item = (props) => {
+    const {title,amount} = props;
+    const status = amount<0?"expense":"income";
+    const symbol = amount<0?"-":"+";
+    return (
+    <li className={status}>
+        {title}<span></span>{symbol}{Math.abs(amount)}
+        <DataContext.Consumer>
+                {value=><p>{value}</p>}
+        </DataContext.Consumer>
+    </li>
+    
+    )
 }
 
 Item.propTypes = {
