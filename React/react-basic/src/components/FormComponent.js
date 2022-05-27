@@ -6,7 +6,6 @@ const FormComponent = (props) => {
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0);
     const [formValid, setFormValid] = useState(false);
-    console.log('render');
     const inputTitle = (event)=>{
         setTitle(event.target.value);
     }
