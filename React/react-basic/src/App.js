@@ -13,7 +13,7 @@ function App() {
     {id:2, title:"B",amount:200},
     {id:3, title:"C",amount:-300},
   ];
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(iniData);
   const onAddNewItem = (newItem) => {
     setItems((prevItem)=>{
         return [newItem,...prevItem]
