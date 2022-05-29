@@ -4,6 +4,7 @@ import Transaction from './components/Transaction';
 import { useState, useEffect, useReducer } from 'react';
 import DataContext from './data/DataContext';
 import ReportComponent from './components/ReportComponent';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   const design = {color:"red", textAlign:"center", fontsize:"1.5rem"};
@@ -51,15 +52,35 @@ const [result, dispatch] = useReducer(reducer,showReport)
     }>
       <div className="container">
           <h1 style={design}>In - Out</h1>
-          {showReport && <ReportComponent />}
-          <FormComponent onAddItem={onAddNewItem}/>
-          <Transaction items={items}/>          
+          {/* {showReport && <ReportComponent />} */}
+          
+          <Router>
+            <div>
+              <ul className='Horizontal-menu'>
+                <li>
+                  <Link to='/'>Detail</Link>
+                </li>
+                <li>
+                  <Link to='/insert'>Save</Link>
+                </li>
+              </ul>
+              <Routes>              
+                <Route path='/' element={<ReportComponent />} />                 
+                <Route path='/insert' element={
+                  <div>
+                    <FormComponent onAddItem={onAddNewItem}/>
+                    <Transaction items={items}/> 
+                  </div>  
+                } />              
+              </Routes>
+            </div>
+          </Router>       
       </div>
-      <div align="center">
+      {/* <div align="center">
         <h1>{result}</h1>
         <button onClick={()=>dispatch({type:"SHOW"})}>Show</button>
         <button onClick={()=>dispatch({type:"HIDE"})}>Hide</button>
-      </div>
+      </div> */}
     </DataContext.Provider>
   );
 }
