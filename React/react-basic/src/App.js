@@ -1,16 +1,15 @@
 import FormComponent from './components/FormComponent';
 import './App.css';
 import Transaction from './components/Transaction';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import DataContext from './data/DataContext';
 import ReportComponent from './components/ReportComponent';
-
 
 function App() {
   const design = {color:"red", textAlign:"center", fontsize:"1.5rem"};
   const iniData = [
     {id:1, title:"A",amount:-100},
-    {id:2, title:"B",amount:200},
+    {id:2, title:"B",amount:2000},
     {id:3, title:"C",amount:-300},
   ];
   const [items, setItems] = useState(iniData);
@@ -30,6 +29,19 @@ function App() {
     setReportIncome(income);
     setReportExpense(expense);
 }, [items,reportIncome,reportExpense])
+// reducer state
+const [showReport, setShowReport] = useState(false);
+const reducer = (state,action)=>{
+  switch(action.type){
+    case "SHOW" :
+      return setShowReport(true)
+    case "HIDE" :
+      return setShowReport(false)
+    default :
+      break;
+  }
+}
+const [result, dispatch] = useReducer(reducer,showReport)
   return (
     <DataContext.Provider value={
       {
@@ -39,12 +51,16 @@ function App() {
     }>
       <div className="container">
           <h1 style={design}>In - Out</h1>
-          <ReportComponent />
+          {showReport && <ReportComponent />}
           <FormComponent onAddItem={onAddNewItem}/>
           <Transaction items={items}/>          
       </div>
+      <div align="center">
+        <h1>{result}</h1>
+        <button onClick={()=>dispatch({type:"SHOW"})}>Show</button>
+        <button onClick={()=>dispatch({type:"HIDE"})}>Hide</button>
+      </div>
     </DataContext.Provider>
-    
   );
 }
 
