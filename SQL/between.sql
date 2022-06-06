@@ -1,0 +1,2 @@
+SELECT * FROM Employee
+WHERE salary BETWEEN 1000 and 20000

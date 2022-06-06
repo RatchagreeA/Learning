@@ -1,5 +1,5 @@
 UPDATE Employee
-SET salary = 1000
-WHERE address = 'rayong'
+SET salary = 1234
+WHERE salary is null
 
 
