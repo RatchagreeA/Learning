@@ -1,47 +1,47 @@
 import "./App.css";
 import React from "react";
 import { useState, useEffect, useReducer } from "react";
-
-const API =
-    "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
+    const API =
+        "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
     const [quotes, setQuotes] = useState("");
     const [index, setIndex] = useState(0);
 
     return (
         <div id="wrapper">
             <div id="quote-box">
-                <div class="quote-text">
-                    <i class="fa fa-quote-left"> </i>
+                <div className="quote-text">
+                    <i className="fa fa-quote-left"> </i>
                     <span id="text"></span>
                 </div>
-                <div class="quote-author">
+                <div className="quote-author">
                     - <span id="author"></span>
                 </div>
-                <div class="buttons">
+                <div className="buttons">
                     <a
-                        class="button"
+                        className="button"
                         id="tweet-quote"
                         title="Tweet this quote!"
                         target="_top"
                     >
-                        {/* <i class="fa fa-twitter"></i> */}
+                        <FontAwesomeIcon
+                            icon={faTwitter}
+                            style={{
+                                color: "blue",
+                                fontSize: "30px",
+                                backgroundColor: "red",
+                            }}
+                        />
                     </a>
-                    <a
-                        class="button"
-                        id="tumblr-quote"
-                        title="Post this quote on facebook!"
-                        target="_blank"
-                    >
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <button class="button" id="new-quote">
+
+                    <button className="button" id="new-quote">
                         New quote
                     </button>
                 </div>
             </div>
-            <div class="footer"></div>
         </div>
     );
 }
