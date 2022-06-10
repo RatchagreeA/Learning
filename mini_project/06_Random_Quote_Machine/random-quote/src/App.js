@@ -1,43 +1,57 @@
-import "./App.css";
+import "./App.scss";
 import React from "react";
-import { useState, useEffect, useReducer } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useState, useEffect } from "react";
 
 function App() {
-    const API =
+    const quoteUrl =
         "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
-    const [quotes, setQuotes] = useState("");
-    const [index, setIndex] = useState(0);
+    const [quoteArr, setQuoteArr] = useState([]);
+    const [quote, setQuote] = useState("A");
+    const [author, setAuthor] = useState("B");
 
+    const fetchQuotes = async (url) => {
+        const res = await fetch(url);
+        const { quotes } = await res.json();
+        setQuoteArr(quotes);
+    };
+    useEffect(() => {
+        fetchQuotes(quoteUrl);
+        console.log("hello");
+    }, [quoteUrl]);
+    const randomIdx = () => {
+        return Math.floor(Math.random() * quoteArr.length);
+    };
+    const updateContent = () => {
+        let idx = randomIdx();
+        setQuote(quoteArr[idx].quote);
+        setAuthor(quoteArr[idx].author);
+    };
     return (
-        <div id="wrapper">
-            <div id="quote-box">
+        <div id="wrapper" className="App">
+            <div id="quote-box" className="App-header">
                 <div className="quote-text">
                     <i className="fa fa-quote-left"> </i>
-                    <span id="text"></span>
+                    <span id="text">{quote}</span>
                 </div>
                 <div className="quote-author">
-                    - <span id="author"></span>
+                    - <span id="author">{author}</span>
                 </div>
                 <div className="buttons">
                     <a
                         className="button"
                         id="tweet-quote"
                         title="Tweet this quote!"
-                        target="_top"
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://twitter.com/intent/tweet"
                     >
-                        <FontAwesomeIcon
-                            icon={faTwitter}
-                            style={{
-                                color: "blue",
-                                fontSize: "30px",
-                                backgroundColor: "red",
-                            }}
-                        />
+                        <i className="fa fa-twitter"></i>
                     </a>
-
-                    <button className="button" id="new-quote">
+                    <button
+                        className="btn btn-danger"
+                        id="new-quote"
+                        onClick={() => updateContent()}
+                    >
                         New quote
                     </button>
                 </div>
@@ -45,9 +59,5 @@ function App() {
         </div>
     );
 }
-// class App extends React.Component {
-//     render() {
-//         return <div>AAA</div>;
-//     }
-// }
+
 export default App;
