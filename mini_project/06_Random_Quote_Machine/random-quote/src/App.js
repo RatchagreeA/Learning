@@ -5,19 +5,28 @@ import { useState, useEffect } from "react";
 function App() {
     const quoteUrl =
         "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
+    const iniQuote = "The best revenge is massive success.";
+    const iniAuthor = "Frank Sinatra";
     const [quoteArr, setQuoteArr] = useState([]);
-    const [quote, setQuote] = useState("A");
-    const [author, setAuthor] = useState("B");
+    const [quote, setQuote] = useState(iniQuote);
+    const [author, setAuthor] = useState(iniAuthor);
 
     const fetchQuotes = async (url) => {
-        const res = await fetch(url);
-        const { quotes } = await res.json();
-        setQuoteArr(quotes);
+        try {
+            const res = await fetch(url);
+            const { quotes } = await res.json();
+            setQuoteArr(quotes);
+        } catch (err) {
+            console.log(err);
+        }
     };
     useEffect(() => {
         fetchQuotes(quoteUrl);
-        console.log("hello");
-    }, [quoteUrl]);
+        console.log("Current : ", quoteArr);
+        return () => {
+            console.log("Prev : ", quoteArr);
+        };
+    }, []);
     const randomIdx = () => {
         return Math.floor(Math.random() * quoteArr.length);
     };
