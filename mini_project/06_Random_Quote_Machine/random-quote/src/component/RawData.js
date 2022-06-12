@@ -1,15 +1,25 @@
-const RawData = [
-    {
-        quote: "Life isn’t about getting and having, it’s about giving and being.",
-        author: "Kevin Kruse",
-    },
-    {
-        quote: "Whatever the mind of man can conceive and believe, it can achieve.",
-        author: "Napoleon Hill",
-    },
-    {
-        quote: "Strive not to be a success, but rather to be of value.",
-        author: "Albert Einstein",
-    },
-];
+import React from "react";
+
+class RawData extends React.Component {
+    constructor(props) {
+        super(props);
+        console.log("constructor");
+    }
+    componentDidMount() {
+        console.log("DidMount");
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("update");
+        console.log("prevProps : ", prevProps);
+        console.log("prevState : ", prevState);
+        console.log("snapshot : ", snapshot);
+    }
+    componentWillUnmount() {
+        console.log("Unmount");
+    }
+    render() {
+        console.log("render");
+        return <h1>Test text</h1>;
+    }
+}
 export default RawData;
