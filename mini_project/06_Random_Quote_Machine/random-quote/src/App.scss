@@ -1,36 +1,64 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body {
-    // background-color: #333;
-    color: #333;
+.App {
+    text-align: center;
+    background-color: #333;
     font-family: "Raleway", sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-.App {
-    text-align: center;
-    width: 450px;
-    background-color: rgb(224, 224, 224);
-    padding: 40px 50px;
-    .App-header {
-        background-color: #282c34;
-        // min-height: 100vh;
+    #quote-box {
+        background-color: white;
+        border-radius: 10px;
+        width: 550px;
+        padding: 30px 30px 80px;
+        color: black;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: calc(10px + 2vmin);
-        color: white;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+        font-size: 16px;
+        .quote-text {
+            i {
+                font-size: 1em;
+                margin-right: 0.2em;
+            }
+            font-weight: 500;
+            font-size: 1.75em;
+        }
+        .quote-author {
+            text-align: end;
+            align-self: flex-end;
+            font-size: 1em;
+        }
+        .buttons {
+            width: 90%;
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .button {
+                height: 40px;
+                border: none;
+                border-radius: 3px;
+                color: #fff;
+                background-color: #333;
+                outline: none;
+                font-size: 1em;
+                padding: 8px 15px 6px;
+                opacity: 1;
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
     }
-}
-
-.wrapper {
-    background-color: green;
-    width: 50%;
-    height: 50%;
 }
