@@ -1,15 +1,4 @@
-.demo1 {
-    color: red;
-}
-.demo2 {
-    color: green;
-}
-.demo3 {
-    color: blue;
-}
-.demo4 {
-    color: blueviolet;
-}
-.demo5 {
-    color: brown;
+* {
+    margin: 0;
+    padding: 0;
 }
