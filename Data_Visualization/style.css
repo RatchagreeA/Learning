@@ -2,3 +2,72 @@
     margin: 0;
     padding: 0;
 }
+:root {
+    --main-color: #708090;
+    --container-color: white;
+    --title-color: rgb(0, 0, 0);
+    --axis-color: rgb(0, 0, 0);
+    --bar-color: rgb(255, 58, 173);
+}
+.main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto";
+    background-color: var(--main-color);
+    background-size: 64px 128px;
+}
+.main .container {
+    height: 560px;
+    width: 900px;
+    background-color: var(--container-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+    align-self: center;
+    position: relative;
+}
+.main .container #title {
+    color: var(--title-color);
+    text-align: center;
+    font-size: 2.5em;
+}
+.main .container .visHolder {
+    position: absolute;
+    top: 6em;
+}
+.overlay {
+    position: absolute;
+    background: #fff;
+    pointer-events: none;
+}
+#x-axis line {
+    stroke: var(--axis-color);
+}
+#x-axis path {
+    stroke: var(--axis-color);
+    stroke-width: 1;
+    fill: none;
+}
+#x-axis text {
+    fill: var(--axis-color);
+}
+#y-axis line {
+    stroke: var(--axis-color);
+}
+#y-axis path {
+    stroke: var(--axis-color);
+    stroke-width: 1;
+    fill: none;
+}
+#y-axis text {
+    fill: var(--axis-color);
+}
+#y-label {
+    fill: var(--axis-color);
+}
+rect.bar {
+    fill: var(--bar-color);
+}
