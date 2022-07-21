@@ -1,3 +1,18 @@
+const titleDiv = document.createElement("div");
+titleDiv.setAttribute("id", "title");
+titleDiv.innerHTML = "United States GDP";
+
+const visHolderDiv = document.createElement("div");
+visHolderDiv.setAttribute("class", "visHolder");
+
+const containerDiv = document.createElement("div");
+containerDiv.setAttribute("class", "container");
+containerDiv.appendChild(titleDiv);
+containerDiv.appendChild(visHolderDiv);
+
+const mainDiv = document.querySelector(".main");
+mainDiv.appendChild(containerDiv);
+
 const width = 800;
 const height = 400;
 const barWidth = width / 275;
@@ -27,7 +42,6 @@ async function main() {
     try {
         const res = await fetch(dataUrl);
         const data = await res.json();
-        console.log(data);
 
         svgContainer
             .append("text")
@@ -41,14 +55,14 @@ async function main() {
         });
         const xMax = new Date(d3.max(yearsDate));
         xMax.setMonth(xMax.getMonth() + 3);
-        console.log(xMax);
+
         const xScale = d3
             .scaleTime()
             .domain([d3.min(yearsDate), xMax])
             .range([0, width]);
 
         const xAxis = d3.axisBottom().scale(xScale);
-        console.log(xAxis);
+
         svgContainer
             .append("g")
             .call(xAxis)
@@ -75,7 +89,6 @@ async function main() {
         const scaledGDP = GDP.map((item) => linearScale(item));
         const years = data.data.map((item) => {
             const tmp = item[0].substring(5, 7);
-
             if (tmp === "01") {
                 return item[0].substring(0, 4) + " Q1";
             }
@@ -90,7 +103,7 @@ async function main() {
             }
             return item[0].substring(0, 4);
         });
-        console.log(years);
+
         d3.select("svg")
             .selectAll("rect")
             .data(scaledGDP)
@@ -99,29 +112,46 @@ async function main() {
             .attr("data-date", (d, i) => data.data[i][0])
             .attr("data-gdp", (d, i) => data.data[i][1])
             .attr("class", "bar")
-            .attr("x", (d, i) => xScale(yearsDate[i]))
-            .attr("y", (d) => height - d)
             .attr("width", barWidth)
             .attr("height", (d) => d)
+            .attr("x", (d, i) => xScale(yearsDate[i]))
+            .attr("y", (d) => height - d)
             .attr("transform", "translate(60, 30)")
             .attr("index", (d, i) => i)
             .on("mouseover", (d, i) => {
-                console.log("idx " + i);
-                console.log("data " + d);
                 overlay
                     .transition()
-                    .duration(0)
-                    .style("height", d)
-                    .style("width", barWidth)
+                    .duration("0")
+                    .style("height", d + "px")
+                    .style("width", barWidth + "px")
                     .style("opacity", 0.9)
-                    .style("left", i * barWidth + 0)
-                    .style("top", height - d)
-                    .style("transform", "translateX(60px)");
+                    .style("left", i * barWidth + 0 + "px")
+                    .style("top", height - d + "px")
+                    .style("transform", "translate(60px,30px)");
+                tooltip
+                    .attr("data-date", data.data[i][0])
+                    .html(
+                        `${years[i]}
+                        <br>$
+                        ${GDP[i]
+                            .toFixed(1)
+                            .replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
+                             Billion`
+                    )
+                    .style("height", "50px")
+                    .style("width", "150px")
+                    .style("padding", "2px")
+                    .style("left", i * barWidth + 30 + "px")
+                    .style("top", height - 150 + "px")
+                    .style("transform", "translateX(60px)")
+                    .transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
+            })
+            .on("mouseout", () => {
+                tooltip.transition().duration(200).style("opacity", 0);
+                overlay.transition().duration(200).style("opacity", 0);
             });
-
-        console.log(GDP);
-        console.log(yearsDate[5]);
-        console.log(xScale(yearsDate[5]));
     } catch (err) {
         console.log(err);
     }

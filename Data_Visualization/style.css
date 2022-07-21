@@ -8,6 +8,9 @@
     --title-color: rgb(0, 0, 0);
     --axis-color: rgb(0, 0, 0);
     --bar-color: rgb(255, 58, 173);
+    --bar-hover-color: rgb(255, 187, 227);
+    --tooltip-bg: rgb(105, 111, 117);
+    --tooltip-color: white;
 }
 .main {
     height: 100vh;
@@ -40,7 +43,7 @@
 }
 .overlay {
     position: absolute;
-    background: #fff;
+    background: var(--bar-hover-color);
     pointer-events: none;
 }
 #x-axis line {
@@ -70,4 +73,17 @@
 }
 rect.bar {
     fill: var(--bar-color);
+}
+#tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    font: 12px;
+    background: var(--tooltip-bg);
+    color: var(--tooltip-color);
+    box-shadow: 1px 1px 10px;
+    border-radius: 2px;
+    pointer-events: none;
 }
