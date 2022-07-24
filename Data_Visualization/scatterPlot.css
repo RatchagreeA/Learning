@@ -1,22 +1,13 @@
-* {
-    /* margin: 0;
-    padding: 0;
-    box-sizing: border-box; */
-    /* border: 1px solid red; */
+.main {
+    font: 50px sans-serif;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 .graph {
     display: block;
     margin: auto;
     background-color: white;
-}
-
-body {
-    font: 50px sans-serif;
-    width: 100%;
-    height: 100%;
-}
-.main {
-    position: relative;
 }
 
 .axis path,
@@ -32,12 +23,12 @@ body {
 }
 
 div.tooltip {
-    position: absolute;
-
     padding: 10px;
     font: 12px sans-serif;
     background: lightsteelblue;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
+    background: rgb(105, 111, 117);
+    color: white;
 }

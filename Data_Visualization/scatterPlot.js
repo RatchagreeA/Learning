@@ -1,21 +1,6 @@
-// const titleDiv = document.createElement("div");
-// titleDiv.setAttribute("id", "title");
-// titleDiv.innerHTML = "United States GDP";
-
-// const visHolderDiv = document.createElement("div");
-// visHolderDiv.setAttribute("class", "visHolder");
-
-// const containerDiv = document.createElement("div");
-// containerDiv.setAttribute("class", "container");
-// containerDiv.appendChild(titleDiv);
-// containerDiv.appendChild(visHolderDiv);
-
-// const mainDiv = document.querySelector(".main");
-// mainDiv.appendChild(containerDiv);
-
 const margin = {
     top: 100,
-    right: 20,
+    right: 60,
     bottom: 30,
     left: 60,
 };
@@ -30,14 +15,15 @@ const yAxis = d3.axisLeft(y).tickFormat(yFormat);
 const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 const tooltip = d3
-    .select("body")
+    .select(".main")
     .append("div")
     .attr("id", "tooltip")
     .attr("class", "tooltip")
+    .style("position", "absolute")
     .style("opacity", 0);
 
 const svgContainer = d3
-    .select("body")
+    .select(".main")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -62,39 +48,110 @@ async function main() {
         const [minY, maxY] = d3.extent(data, (d) => d.Time);
         x.domain([minX, maxX]);
         y.domain([minY, maxY]);
-        console.log(svgContainer);
+
         svgContainer
             .append("g")
             .attr("class", "axis")
-            .attr("id", "axis")
+            .attr("id", "x-axis")
             .attr("transform", `translate(0,${height})`)
-            .call(xAxis)
+            .call(xAxis);
+
+        svgContainer
             .append("text")
-            .attr("class", "x-axis-label")
-            .attr("x", width)
-            .attr("y", -6)
-            .style("text-anchor", "end")
+            .style("font-size", 18)
+            .attr("transform", `translate(${width + 20},${height})`)
             .text("Year");
 
         svgContainer
             .append("g")
-            .attr("class", "y-axis")
+            .attr("class", "axis")
             .attr("id", "y-axis")
-            .call(yAxis)
-            .append("text")
-            .attr("class", "label")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Best Time (minutes)");
+            .call(yAxis);
 
         svgContainer
             .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("x", -160)
-            .attr("y", -44)
+            .attr("transform", `translate(${-60},${-20})`)
             .style("font-size", 18)
-            .text("Time in Minutes");
+            .text("Best Time (MM:SS)");
+
+        const color = d3.scaleOrdinal(d3.schemeCategory10);
+        const timeFormat = d3.timeFormat("%M:%S");
+        svgContainer
+            .selectAll(".dot")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("class", "dot")
+            .attr("r", 6)
+            .attr("cx", (d) => x(d.Year))
+            .attr("cy", (d) => y(d.Time))
+            .attr("data-xvalue", (d) => d.Year)
+            .attr("data-yvalue", (d) => d.Time.toISOString())
+            .style("fill", (d) => color(d.Doping !== ""))
+            .on("mouseover", (d, i) => {
+                tooltip.style("opacity", 0.9);
+                tooltip.attr("data-year", d.Year);
+                tooltip
+                    .html(
+                        `${d.Name}: ${d.Nationality}
+                    <br/>
+                    Year: ${d.Year}, Time: ${timeFormat(d.Time)}
+                    ${d.Doping ? `<br/><br/>${d.Doping}` : ""}`
+                    )
+                    .style("left", d3.event.pageX + "px")
+                    .style("top", d3.event.pageY - 28 + "px");
+            })
+            .on("mouseout", () => {
+                tooltip.style("opacity", 0);
+            });
+
+        // title
+        svgContainer
+            .append("text")
+            .attr("id", "title")
+            .attr("x", width / 2)
+            .attr("y", 0 - margin.top / 2)
+            .attr("text-anchor", "middle")
+            .style("font-size", "30px")
+            .text("Doping in Professional Bicycle Racing");
+
+        // subtitle
+        svgContainer
+            .append("text")
+            .attr("x", width / 2)
+            .attr("y", 0 - margin.top / 2 + 25)
+            .attr("text-anchor", "middle")
+            .style("font-size", "20px")
+            .text("35 Fastest times up Alpe d'Huez");
+
+        // legend
+        const legendContainer = svgContainer.append("g").attr("id", "legend");
+        const legend = legendContainer
+            .selectAll("#legend")
+            .data(color.domain())
+            .enter()
+            .append("g")
+            .attr("class", "legend-label")
+            .attr(
+                "transform",
+                (d, i) => `translate(0, ${height / 2 - i * 20})`
+            );
+        legend
+            .append("rect")
+            .attr("x", width - 18)
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", color);
+        legend
+            .append("text")
+            .attr("x", width - 24)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            .style("font-size", 15)
+            .style("text-anchor", "end")
+            .text((d) =>
+                d ? "Riders with doping allegations" : "No doping allegations"
+            );
     } catch (err) {
         console.log(err);
     }
